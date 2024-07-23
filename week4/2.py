@@ -19,7 +19,7 @@ def minCoins(coins, m, V):
 
 
 # Driver program to test above function
-coins = [16, 17, 23, 24, 39, 40]
+coins = [1, 2, 5, 10, 13]
 m = len(coins)
-V = 100
+V = 3377
 print("Minimum coins required is", minCoins(coins, m, V))
