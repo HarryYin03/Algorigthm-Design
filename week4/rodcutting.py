@@ -1,20 +1,16 @@
-def rodCutting(prices, length):
-    # Initialize dp array to store maximum revenue for each length
-    dp = [0] * (length + 1)
-    
-    # Compute maximum revenue for each length from 1 to length
-    for j in range(1, length + 1):
-        max_revenue = float('-inf')
-        for i in range(1, j + 1):
-            max_revenue = max(max_revenue, prices[i - 1] + dp[j - i])
-        dp[j] = max_revenue
-    
-    return dp[length]
+call_count = 0
 
-# Given lengths and prices
-lengths = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-prices = [1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
+def maxRev(l, prices):
+    global call_count
+    call_count += 1
+    if l == 0:
+        return 0
+    max_revenue = 0
+    for i in range(1, l + 1):
+        max_revenue = max(max_revenue, prices[i - 1] + maxRev(l - i, prices)) #summing the price of the current cut and the revenue from the remaining rod
+    return max_revenue
 
-# Length of the rod
-L = 8
-print("Maximum revenue obtainable is", rodCutting(prices, L))
+prices = list(map(int, input().split()))
+rod_length = len(prices)
+print(maxRev(rod_length, prices))
+print("Number of function calls:", call_count)
