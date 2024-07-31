@@ -1,33 +1,41 @@
-def min_cost(n, k, prices):
-    dp = [float('inf')] * (k + 1)
-    dp[0] = 0
-
-    for i in range(1, k + 1):
-        if prices[i - 1] != -1:
-            for j in range(i, k + 1):
-                if dp[j - i] != float('inf'):
-                    dp[j] = min(dp[j], dp[j - i] + prices[i - 1])
-
-    return dp[k] if dp[k] != float('inf') else -1
-
-if __name__ == "__main__":
-    import sys
-    input = sys.stdin.read
-    data = input().split()
-    
-    index = 0
-    t = int(data[index])
-    index += 1
+def buying_apples(test_cases):
     results = []
-    
-    for _ in range(t):
-        n = int(data[index])
-        k = int(data[index + 1])
-        index += 2
-        prices = list(map(int, data[index:index + k]))
-        index += k
-        result = min_cost(n, k, prices)
+    for case in test_cases:
+        n, k, prices = case
+        dp = [float('inf')] * (k + 1)
+        dp[0] = 0
+
+        for weight in range(1, k + 1):
+            if prices[weight - 1] != -1:
+                for j in range(weight, k + 1):
+                    if dp[j - weight] != float('inf'):
+                        dp[j] = min(dp[j], dp[j - weight] + prices[weight - 1])
+        
+        result = dp[k] if dp[k] != float('inf') else -1
         results.append(result)
-    
-    for result in results:
-        print(result)
+    return results
+
+# Input parsing
+input_data = """
+2
+3 5
+-1 -1 4 5 -1
+5 5
+1 2 3 4 5
+"""
+
+lines = input_data.strip().split('\n')
+num_test_cases = int(lines[0])
+test_cases = []
+
+index = 1
+for _ in range(num_test_cases):
+    n, k = map(int, lines[index].split())
+    prices = list(map(int, lines[index + 1].split()))
+    test_cases.append((n, k, prices))
+    index += 2
+
+# Running the test
+results = buying_apples(test_cases)
+for result in results:
+    print(result)
