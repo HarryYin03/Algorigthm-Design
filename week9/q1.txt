@@ -1,0 +1,4 @@
+Sketch the two possible transitions from LOWER2 state:
+
+Transition 1: From LOWER2 at depth d, you can move to FLAT at d+1 by placing a horizontal tile in the bottom row.
+Transition 2: From LOWER2 at depth d, you can move to LOWER2 at d+2 by placing two vertical tiles on the bottom two rows.

@@ -1,0 +1,24 @@
+Question 6: Total Number of Distinct States
+Task: Analyze what should be the total number of distinct states for each maze configuration.
+
+Answer: The total number of distinct states should equal the number of reachable cells in the maze. Each cell not blocked by a wall and within the bounds of the maze can be considered a distinct state.
+
+Question 7: Excessive State Count
+Task: Explain why the number of states from the program could be more than the actual number of states.
+
+Answer: This happens when the BFS algorithm revisits cells already visited due to different paths leading to the same cell, especially if we're not keeping track of the shortest path to each cell and simply marking cells as visited.
+
+Question 8: Improvement of Step Value
+Task: Discuss whether a "step" value recorded for a specific state can be improved as the search expands.
+
+Answer: In BFS, once a state (or cell in the maze) is reached, the "step" value cannot be improved because BFS explores in layers from the start point, ensuring the shortest path to each state is found first.
+
+Question 10: Print the Step Matrix
+Task: Modify the program to print the step matrix after the BFS completes.
+
+Answer: The bfs_maze_optimized function already prepares a step matrix, steps, which can be printed out at the end of the function to visualize how the search expanded.
+
+Question 11: Testing with Complex Mazes
+Task: Test the program with mazes that include walls to observe the behavior of the BFS algorithm.
+Answer: Testing can be done by modifying the maze input to include walls (e.g., set some cells to 1 which represents walls), and then running the bfs_maze_optimized function to see how the algorithm navigates around the walls.
+

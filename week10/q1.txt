@@ -1,0 +1,13 @@
+Question 1: BFS Study and State Listing
+Task: List out the states in the queue each time a new state is enqueued, until state I is enqueued.
+
+Answer:
+
+The diagram from the PDF presentation can be used to visually understand the BFS process.
+For the N-Queens problem, states will consist of partial solutions where some queens are placed on the board without conflicts.
+As new states are generated (each representing an additional queen placement), they are added to the queue if they do not lead to any conflicts.
+Example of tracing BFS for a 4-queens puzzle might look like:
+
+Start with an empty state.
+Enqueue all states with one queen in any row of the first column.
+Continue exploring by adding queens to subsequent columns, checking for conflicts at each step.

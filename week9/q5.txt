@@ -1,0 +1,14 @@
+a) For each program, what is the largest length that takes > 1 second?
+
+Answer:
+Brute-force (m3tileBF.py): Typically, lengths as small as L=10 might take more than 1 second.
+Memoization (m3tileMM.py): This can handle larger lengths, around L=20 or more before taking more than 1 second.
+Dynamic Programming (m3tileDP.py): This version is the most efficient and can handle lengths of L=100 or more before taking more than 1 second.
+b) What is the largest length where the memoization version reaches its recursion limit?
+
+Answer: Python's default recursion limit is usually around 1000. The memoization version might reach this limit at lengths close to L=1000, depending on how deep the recursion is.
+c) What is the advantage of the dynamic programming version over the memoization version? What is the reason for such advantage?
+
+Answer:
+Advantage: The dynamic programming version is faster and more memory-efficient because it avoids the overhead of recursive function calls and does not need to maintain a large call stack. It computes the solution iteratively by filling up the DP table, which is more efficient.
+Reason: Dynamic programming directly fills out a table iteratively, reducing time complexity and memory usage compared to memoization.
